@@ -1,0 +1,37 @@
+# Add users in CA and NY state
+#
+AddUser,CA001,20
+AddUser,CA002,21
+AddUser,CA003,22
+#
+AddUser,NY001,30
+AddUser,NY002,31
+AddUser,NY003,32
+AddUser,NY004,33
+#
+# Add friendships between users in CA and in NY
+#
+AddFriend,CA001,CA002
+# 
+# Bad input
+AddFriend,CA002,CA002
+#
+AddFriend,NY001,NY002
+AddFriend,NY002,NY003
+AddFriend,NY003,NY004
+#
+# Now test friendship existence and also shortest path
+TestFriend,CA001,CA003
+TestFriend,NY001,NY003
+TestFriend,CA001,NY003
+TestShortestPath,CA001,CA003
+TestShortestPath,NY001,NY003
+#
+# test connection between CA and NY -- not exists
+TestShortestPath,CA001,NY004
+#
+# now add a friend from CA003 to NY001. No path from CA001 to NY004 but CA003 to NY004 exist
+#
+AddFriend,CA003,NY001
+TestShortestPath,CA001,NY004
+TestShortestPath,CA003,NY004
