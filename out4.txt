@@ -1,0 +1,59 @@
+Results of test execution. Output:
+
+Line#: 3; User:CA001 is added to the network;  Input line: AddUser,CA001,20
+Line#: 5; User:NY001 is added to the network;  Input line: AddUser,NY001,21
+Line#: 7; User:CO001 is added to the network;  Input line: AddUser,CO001,22
+Line#: 9; User:MA001 is added to the network;  Input line: AddUser,MA001,23
+Line#: 11; User:NV001 is added to the network;  Input line: AddUser,NV001,24
+Line#: 15; User1:CA001 and User2:NY001 are NOT friends;  Input line: TestFriend,CA001,NY001
+Line#: 16; User1:CA001 and User2:CO001 are NOT friends;  Input line: TestFriend,CA001,CO001
+Line#: 17; User1:CA001 and User2:MA001 are NOT friends;  Input line: TestFriend,CA001,MA001
+Line#: 18; User1:CA001 and User2:NV001 are NOT friends;  Input line: TestFriend,CA001,NV001
+Line#: 19; User1:CA001 and User2:CA001 are friends;  Input line: TestFriend,CA001,CA001
+Line#: 21; User1:NY001 and User2:CA001 are NOT friends;  Input line: TestFriend,NY001,CA001
+Line#: 22; User1:NY001 and User2:CO001 are NOT friends;  Input line: TestFriend,NY001,CO001
+Line#: 23; User1:NY001 and User2:MA001 are NOT friends;  Input line: TestFriend,NY001,MA001
+Line#: 24; User1:NY001 and User2:NV001 are NOT friends;  Input line: TestFriend,NY001,NV001
+Line#: 25; User1:NY001 and User2:NY001 are friends;  Input line: TestFriend,NY001,NY001
+Line#: 27; User1:CO001 and User2:CA001 are NOT friends;  Input line: TestFriend,CO001,CA001
+Line#: 28; User1:CO001 and User2:NY001 are NOT friends;  Input line: TestFriend,CO001,NY001
+Line#: 29; User1:CO001 and User2:MA001 are NOT friends;  Input line: TestFriend,CO001,MA001
+Line#: 30; User1:CO001 and User2:NV001 are NOT friends;  Input line: TestFriend,CO001,NV001
+Line#: 31; User1:CO001 and User2:CO001 are friends;  Input line: TestFriend,CO001,CO001
+Line#: 33; User1:MA001 and User2:CA001 are NOT friends;  Input line: TestFriend,MA001,CA001
+Line#: 34; User1:MA001 and User2:NY001 are NOT friends;  Input line: TestFriend,MA001,NY001
+Line#: 35; User1:MA001 and User2:CO001 are NOT friends;  Input line: TestFriend,MA001,CO001
+Line#: 36; User1:MA001 and User2:NV001 are NOT friends;  Input line: TestFriend,MA001,NV001
+Line#: 37; User1:MA001 and User2:MA001 are friends;  Input line: TestFriend,MA001,MA001
+Line#: 39; User1:NV001 and User2:CA001 are NOT friends;  Input line: TestFriend,NV001,CA001
+Line#: 40; User1:NV001 and User2:NY001 are NOT friends;  Input line: TestFriend,NV001,NY001
+Line#: 41; User1:NV001 and User2:CO001 are NOT friends;  Input line: TestFriend,NV001,CO001
+Line#: 42; User1:NV001 and User2:NV001 are friends;  Input line: TestFriend,NV001,NV001
+Line#: 43; User1:NV001 and User2:MA001 are NOT friends;  Input line: TestFriend,NV001,MA001
+Line#: 46; User1:CA001 and User2:NY001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,CA001,NY001
+Line#: 47; User1:CA001 and User2:CO001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,CA001,CO001
+Line#: 48; User1:CA001 and User2:MA001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,CA001,MA001
+Line#: 49; User1:CA001 and User2:NV001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,CA001,NV001
+Line#: 50; User1:CA001 and User2:CA001 are friends;  Shortest Path: [CA001]; Input line: TestShortestPath,CA001,CA001
+Line#: 52; User1:NY001 and User2:CA001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,NY001,CA001
+Line#: 53; User1:NY001 and User2:CO001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,NY001,CO001
+Line#: 54; User1:NY001 and User2:MA001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,NY001,MA001
+Line#: 55; User1:NY001 and User2:NV001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,NY001,NV001
+Line#: 56; User1:NY001 and User2:NY001 are friends;  Shortest Path: [NY001]; Input line: TestShortestPath,NY001,NY001
+Line#: 58; User1:CO001 and User2:CA001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,CO001,CA001
+Line#: 59; User1:CO001 and User2:NY001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,CO001,NY001
+Line#: 60; User1:CO001 and User2:MA001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,CO001,MA001
+Line#: 61; User1:CO001 and User2:NV001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,CO001,NV001
+Line#: 62; User1:CO001 and User2:CO001 are friends;  Shortest Path: [CO001]; Input line: TestShortestPath,CO001,CO001
+Line#: 64; User1:MA001 and User2:CA001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,MA001,CA001
+Line#: 65; User1:MA001 and User2:NY001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,MA001,NY001
+Line#: 66; User1:MA001 and User2:CO001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,MA001,CO001
+Line#: 67; User1:MA001 and User2:NV001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,MA001,NV001
+Line#: 68; User1:MA001 and User2:MA001 are friends;  Shortest Path: [MA001]; Input line: TestShortestPath,MA001,MA001
+Line#: 70; User1:NV001 and User2:CA001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,NV001,CA001
+Line#: 71; User1:NV001 and User2:NY001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,NV001,NY001
+Line#: 72; User1:NV001 and User2:CO001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,NV001,CO001
+Line#: 73; User1:NV001 and User2:NV001 are friends;  Shortest Path: [NV001]; Input line: TestShortestPath,NV001,NV001
+Line#: 74; User1:NV001 and User2:MA001 are NOT friends and there is NO shortest path;  Input line: TestShortestPath,NV001,MA001
+Line#: 78; Created friendship between user:CA001 and user:NY001 in the network;  Input line: AddFriend,CA001,NY001
+Line#: 79; User1:CA001 and User2:NY001 are friends;  Shortest Path: [NY001, CA001]; Input line: TestShortestPath,CA001,NY001

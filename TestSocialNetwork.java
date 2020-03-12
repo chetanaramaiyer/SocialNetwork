@@ -42,6 +42,10 @@ public class TestSocialNetwork {
 				runTestShortestPath(sn, line, lineNumber, tokens, errors, output);
 				continue;
 			}
+			if ("TestShortestLength".equals(tokens[0])) {
+				runTestShortestLength(sn, line, lineNumber, tokens, errors, output);
+				continue;
+			}
 		}
 		scanner.close();
 		
@@ -176,6 +180,38 @@ public class TestSocialNetwork {
 		} else {
 			output.add("Line#: " + lineNumber + "; User1:" + user1 + " and User2:" + user2
 					+ " are friends;  Shortest Path: " + list + "; Input line: " + line);
+		}
+	}
+
+	private  static void runTestShortestLength(SocialNetwork sn, String line, Integer lineNumber, 
+			String[] tokens, ArrayList<String> errors, ArrayList<String> output) {
+		// we expect the line to be: TestFriend,<name1>,<name2>
+		if (tokens.length != 3) {
+			errors.add("Line#: " + lineNumber
+					+ "; Wrong number of parameters for TestShortestLength. Expected 3 in the form of TestShortestLength,<user1>,<User2>"
+					+ ", but got " + tokens.length + "; Input line: " + line);
+			return;
+		}
+
+		String user1 = tokens[1];
+		String user2 = tokens[2];
+		if (!sn.isUser(user1)) {
+			errors.add("Line#: " + lineNumber + "; User doesn't exist. Bad TestShortestLength Call. User:" + user1
+					+ ";  Input line: " + line);
+			return;
+		}
+		if (!sn.isUser(user2)) {
+			errors.add("Line#: " + lineNumber + "; User doesn't exist. Bad TestShortestLength Call. User:" + user2
+					+ ";  Input line: " + line);
+			return;
+		}
+		int sLength = sn.shortestPathLength(user1, user2);
+		if(sLength == 0) {
+			output.add("Line#: " + lineNumber + "; User1:" + user1 + " and User2:" + user2
+					+ " are NOT friends and there is NO shortest path;  Input line: " + line);
+		} else {
+			output.add("Line#: " + lineNumber + "; User1:" + user1 + " and User2:" + user2
+					+ " are friends;  Shortest Length: " + sLength + "; Input line: " + line);
 		}
 	}
 }

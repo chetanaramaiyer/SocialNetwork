@@ -18,6 +18,9 @@ public class SocialNetwork {
     }
     /** Adds a user to the social network*/
     public synchronized User addUser(Profile p){
+        if(p == null){
+            return null;
+        }
         int aId = generatePersonID(); // generating unique Iq for new user
         User a = new User(p, aId);
         this.disjointSet.union(a, a); // initially, new user is in its own disjoint component
@@ -26,6 +29,9 @@ public class SocialNetwork {
     }
     /** Given a user object, checks if a user is part of the social network*/
     public boolean isUser(User a){
+        if(a == null){
+            return false;
+        }
         return allUsers.get(a.prof.getName()) != null;
     }
 
@@ -47,6 +53,9 @@ public class SocialNetwork {
 
     /** Given two user objects, creates a friendship between them in the social network*/
     public synchronized void createFriendShip(User a, User b){
+        if(a == null || b == null){
+            return;
+        }
     	if (a.equals(b)) {
     		// same user
     		return;
@@ -58,6 +67,9 @@ public class SocialNetwork {
 
     /** Checks if two users are friends in the social network*/
     public boolean isFriends(User a, User b){
+        if(a == null || b == null){
+            return false;
+        }
         if(isUser(a) && isUser(b)) {
             ArrayList<User> aFriends = a.getFriends();
             ArrayList<User> bFriends = b.getFriends();
@@ -66,13 +78,21 @@ public class SocialNetwork {
         }
         return false;
     }
-    /** Given two user's names, return shortest chain between them*/
+    /** Given two user's names, return shortest chain between them
+    * USED ONLY FOR TESTING
+    */
     public ArrayList<User> shortestPath(String a, String b){
     	return shortestPath(allUsers.get(a), allUsers.get(b));
     }
 
     /** Given two user objects, return shortest chain between them*/
     public ArrayList<User> shortestPath(User a, User b){
+        if(a == null || b == null){
+            return null;
+        }
+        if(a.equals(b)){
+            return null;
+        }
         if(disjointSet.connected(a.getUniqueID(),b.getUniqueID()) == false){
             return null;
         }
@@ -94,7 +114,7 @@ public class SocialNetwork {
 
     /** BFS that stores predecessor of each vertex in array  and its distance from source in array d */
     public void BFS(User src, User dest, int num, User pred[], int dist[])
-    {
+    {   
         if (src.equals(dest))
             return;
         // queue of vertices whose friends will be traversed as per BFS Algorithm
@@ -132,6 +152,43 @@ public class SocialNetwork {
                 }
             }
         }
+    }
+
+    /** Given two user's names, return length of the shortest chain between them
+    * USED ONLY FOR TESTING
+    */
+    public int shortestPathLength(String a, String b){
+    	return shortestPathLength(allUsers.get(a), allUsers.get(b));
+    }
+
+    /** Given two user objects, return the length of the shortest path
+    * This is different than shortestPath function because we aren't saving
+    * the shortest path in memory.
+    */
+    public int shortestPathLength(User a, User b){
+        if(a == null || b == null){
+            return 0;
+        }
+        if(a.equals(b)){
+            return 0;
+        }
+        if(disjointSet.connected(a.getUniqueID(),b.getUniqueID()) == false){
+            return 0;
+        }
+        User pred [] = new User [personIdCounter + 1];
+        int dist [] = new int [personIdCounter + 1];
+        BFS(a, b, personIdCounter, pred, dist);
+
+        //Form chain of users in shortest path from pred[]
+        int length = 0;
+        User curr = b;
+        
+        while(pred[curr.getUniqueID()] != null){
+            length++;
+            curr = pred[curr.getUniqueID()];
+        }
+
+        return length;
     }
 
     public static synchronized int generatePersonID()
